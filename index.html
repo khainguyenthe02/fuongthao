@@ -22,6 +22,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            background-image: url("thao.jpg");
         }
         
         canvas {
@@ -51,7 +52,7 @@
         h1 {
             text-align: center;
             position: absolute;
-            margin-top: 100px;
+            margin-top: 50%;
             margin-left: 45%;
             color: rgb(215, 176, 214);
             text-decoration: underline;
@@ -61,25 +62,29 @@
         
         img {
             cursor: pointer;
-            position: absolute;
-            width: 400px;
-            height: 550px;
+            position: relative;
             
             z-index: 1;
             display: block;
             position: absolute;
             transform: translate(-50%, -50%);
-            animation: heart 2.5s ease infinite
+            animation: heart 2.0s ease infinite
         }
         
     </style>
 </HEAD>
 
 <BODY>
-    <h1 title="Phương Thảo">❤️yêuuu Thảo❤️</h1>
-    <img src="thao.jpg" alt="Phương Thảo">
+    
+   
     <canvas id="pinkboard">
+        <div>
+           
+            <img src="thao.jpg" alt="Phương Thảo">
+        </div>
+        
         <canvas id="pinkboard">
+           
         </canvas>
     </canvas>
     <script>
@@ -184,6 +189,7 @@
                 var size = image.width * ease(this.age / settings.particles.duration);
                 context.globalAlpha = 1 - this.age / settings.particles.duration;
                 context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
+                
             };
             return Particle;
         })();
@@ -259,7 +265,7 @@
                 particles = new ParticlePool(settings.particles.length),
                 particleRate = settings.particles.length / settings.particles.duration, // particles/sec
                 time;
-
+                
             // get point on heart with -PI <= t <= PI
             function pointOnHeart(t) {
                 return new Point(
